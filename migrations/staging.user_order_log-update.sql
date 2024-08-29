@@ -1,0 +1,1 @@
+ALTER TABLE staging.user_order_log ADD COLUMN IF NOT EXISTS status VARCHAR(15) NOT NULL DEFAULT 'shipped';

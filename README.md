@@ -1,30 +1,50 @@
 # Проект 3-го спринта
 
+![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-salad)
+![SQL](https://img.shields.io/badge/-SQL-pink)
+
 ### Описание
 Репозиторий предназначен для сдачи проекта 3-го спринта
 
-### Как работать с репозиторием
-1. В вашем GitHub-аккаунте автоматически создастся репозиторий `de-project-sprint-3` после того, как вы привяжете свой GitHub-аккаунт на Платформе.
-2. Скопируйте репозиторий на свой локальный компьютер, в качестве пароля укажите ваш `Access Token` (получить нужно на странице [Personal Access Tokens](https://github.com/settings/tokens)):
-	* `git clone https://github.com/{{ username }}/de-project-sprint-3.git`
-3. Перейдите в директорию с проектом: 
-	* `cd de-project-sprint-3`
-4. Выполните проект и сохраните получившийся код в локальном репозитории:
-	* `git add .`
-	* `git commit -m 'my best commit'`
-5. Обновите репозиторий в вашем GutHub-аккаунте:
-	* `git push origin main`
-
 ### Структура репозитория
-1. Папка `migrations` хранит файлы миграции. Файлы миграции должны быть с расширением `.sql` и содержать SQL-скрипт обновления базы данных.
-2. В папке `src` хранятся все необходимые исходники: 
-    * Папка `dags` содержит DAG's Airflow.
+- `/migrations`
+- `/src/dags`
+
+### Схема данных, слой stg
+
+<p float="center">
+  <img src="src/image/de-project-sprint-3-stg.png" width="95%" />
+</p>
+
+### Схема данных, слой cdm
+
+<p float="center">
+  <img src="src/image/de-project-sprint-3-cdm.png" width="95%" />
+</p>
+
+### Панель управления дагами в Airflow
+
+<p float="center">
+  <img src="src/image/de-project-sprint-3-airflow-ui.png" width="95%" />
+</p>
+
+### Граф запуска тасок в Airflow
+
+<p float="center">
+  <img src="src/image/de-project-sprint-airflow-task-graph.png" width="95%" />
+</p>
+
+### Графики в Metabase
+<p float="left">
+  <img src="src/image/f_sales_q.png" width="47%" />
+  <img src="src/image/f_sales_p.png" width="47%" />
+</p>
 
 ### Как запустить контейнер
 Запустите локально команду:
 
 ```
-docker run -d --rm -p 3000:3000 -p 15432:5432 --name=de-project-sprint-3-server cr.yandex/crp1r8pht0n0gl25aug1/project-sprint-3:latest
+docker run -d -p 3000:3000 -p 15432:5432 --name=de-project-sprint-3-server cr.yandex/crp1r8pht0n0gl25aug1/project-sprint-3:latest
 ```
 
 После того как запустится контейнер, у вас будут доступны:
